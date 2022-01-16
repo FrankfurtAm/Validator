@@ -41,7 +41,7 @@ The string that checks the mail is it or not
 The method compares two passwords whether they are identical or not.
 
 ```php
-Validator:verifyPasswords(string $password1, $password2): bool
+Validator:verifyPasswords(string $password1, string $password2): bool
 ```
 
 ------
