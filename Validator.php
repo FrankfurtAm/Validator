@@ -3,7 +3,7 @@
 class Validator
 {
 
-    public static function is_email($email)
+    public static function is_email(string $email)
     {
         return filter_var($email, FILTER_VALIDATE_EMAIL);
     }
@@ -18,18 +18,13 @@ class Validator
         return ($_SESSION['authorizedUser']['role'] === 'admin')? true : false;
     }
 
-    public static function itsMe($id)
+    public static function itsMe(int $id)
     {
-        return ((int)$id === (int)$_SESSION['authorizedUser']['id'])? true : false;
+        return ($id === (int)$_SESSION['authorizedUser']['id'])? true : false;
     }
 
-    public static function validate($data)
+    public static function verifyPasswords(string $password1, string $password2)
     {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = strip_tags($data);
-        $data = htmlspecialchars($data);
-
-        return $data;
+        return $password1 === $password2; 
     }
 }
